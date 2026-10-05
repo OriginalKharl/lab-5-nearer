@@ -200,3 +200,23 @@ int main() {
     }
 
     // 8th commit
+
+    std::vector<std::vector<int>> matrix = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+    // FIX #10 dynamic matrix transpose
+
+    processMatrix(matrix);
+    std::vector<std::vector<int>> rect = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8}
+    };
+    std::cout << "\n--- Non-square 2x4 matrix ---\n";
+    processMatrix(rect);
+    std::cout << "--- REFACTORED SUBSYSTEM COMPLETE ---\n";
+
+    // proof that dynamic sizing works
+    // 9th commit
