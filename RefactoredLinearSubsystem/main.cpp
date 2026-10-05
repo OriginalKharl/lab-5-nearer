@@ -90,3 +90,25 @@ public:
 
     // removeItemAt() segm
     // 4th commit
+
+    int findItem(int target) const {
+        for (std::size_t i = 0; i < size_; ++i) {
+            if (data_[i] == target) {
+                return static_cast<int>(i);
+            }
+        }
+        return -1;
+    }
+
+    // findItem() segm
+
+    void printAll() const {
+        std::cout << "Current List Contents: ";
+        for (std::size_t i = 0; i < size_; ++i) {
+            std::cout << data_[i] << ' ';
+        }
+        std::cout << '\n';
+    }
+
+    // printAll() segm
+    // 5th commit
