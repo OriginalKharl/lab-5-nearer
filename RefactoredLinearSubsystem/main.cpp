@@ -62,3 +62,31 @@ public:
     }
 
    // Rule of Five, 3rd commit
+
+    void addItem(int value) {
+        if (size_ >= capacity_) {
+            resize(capacity_ * 2);
+        }
+        data_[size_] = value;
+        ++size_;
+        std::cout << "Added item: " << value << '\n';
+    }
+
+    // addItem() segm
+
+    bool removeItemAt(std::size_t index) {
+        if (index >= size_) {
+            std::cout << "Invalid index! (out of bounds)\n";
+            return false;
+        }
+        // Single-pass left shift — O(n) worst case
+        for (std::size_t i = index; i < size_ - 1; ++i) {
+            data_[i] = data_[i + 1];
+        }
+        --size_;
+        std::cout << "Item removed from index " << index << '\n';
+        return true;
+    }
+
+    // removeItemAt() segm
+    // 4th commit
