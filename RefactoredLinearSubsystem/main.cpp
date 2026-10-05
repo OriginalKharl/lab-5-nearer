@@ -129,3 +129,30 @@ public:
 
 // Accessors
 // 6th commit
+
+void processMatrix(const std::vector<std::vector<int>>& matrix) {
+    if (matrix.empty() || matrix.front().empty()) {
+        std::cout << "Empty matrix — nothing to transpose.\n";
+        return;
+    }
+    const std::size_t rows = matrix.size();
+    const std::size_t cols = matrix.front().size();
+
+    std::vector<std::vector<int>> transposed(
+        cols, std::vector<int>(rows, 0));
+    for (std::size_t i = 0; i < rows; ++i) {
+        for (std::size_t j = 0; j < cols; ++j) {
+            transposed[j][i] = matrix[i][j];
+        }
+    }
+    std::cout << "Transposed Matrix:\n";
+    for (std::size_t i = 0; i < cols; ++i) {
+        for (std::size_t j = 0; j < rows; ++j) {
+            std::cout << transposed[i][j] << ' ';
+        }
+        std::cout << '\n';
+    }
+}
+
+// processMatrix() void main
+// 7th commit
