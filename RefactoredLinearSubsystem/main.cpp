@@ -156,3 +156,47 @@ void processMatrix(const std::vector<std::vector<int>>& matrix) {
 
 // processMatrix() void main
 // 7th commit
+
+// MAIN / Driver demonstration
+
+int main() {
+    std::cout << "--- STARTING REFACTORED SUBSYSTEM ---\n";
+   {
+        DynamicArray arr(5);
+
+        arr.addItem(10);
+        arr.addItem(20);
+        arr.addItem(30);
+        arr.addItem(40);
+        arr.addItem(50);
+        // Normal / default inserts
+
+        arr.addItem(60);
+        // FIX #1 safe resize with no leak
+
+         arr.printAll();
+         // FIX #4 no garbage read
+
+        int idx = arr.findItem(30);
+        std::cout << "Found 30 at index: " << idx << '\n';
+        // FIX #8 single-pass search
+
+        arr.removeItemAt(2);
+        arr.printAll();
+        // FIX #7 single-pass shift deletion
+
+        arr.removeItemAt(99);
+        arr.printAll();
+        // FIX #2 out-of-bounds rejected
+
+        arr.removeItemAt(arr.getSize() - 1);
+        arr.printAll();
+        arr.removeItemAt(static_cast<std::size_t>(999999));
+        arr.printAll();
+    }
+      {
+      DynamicArray emptyArr(3);
+        emptyArr.printAll();
+    }
+
+    // 8th commit
