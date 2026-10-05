@@ -20,3 +20,20 @@ private:
      }
 
      // 1st commit, DynamicArray start declare
+
+public:
+
+    explicit DynamicArray(std::size_t initialCapacity = 5)
+        : data_(new int[initialCapacity]()),
+          size_(0),
+          capacity_(initialCapacity) {}
+
+          // Constructor segm
+
+      ~DynamicArray() {
+        delete[] data_;
+        data_ = nullptr;
+    }
+
+    // Destructor segm
+    // 2nd commit
