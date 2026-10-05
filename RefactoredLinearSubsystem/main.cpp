@@ -37,3 +37,28 @@ public:
 
     // Destructor segm
     // 2nd commit
+
+   DynamicArray(const DynamicArray&)            = delete;
+    DynamicArray& operator=(const DynamicArray&) = delete;
+    DynamicArray(DynamicArray&& other) noexcept
+        : data_(other.data_),
+          size_(other.size_),
+          capacity_(other.capacity_) {
+        other.data_     = nullptr;
+        other.size_     = 0;
+        other.capacity_ = 0;
+    }
+    DynamicArray& operator=(DynamicArray&& other) noexcept {
+        if (this != &other) {
+            delete[] data_;
+            data_           = other.data_;
+            size_           = other.size_;
+            capacity_       = other.capacity_;
+            other.data_     = nullptr;
+            other.size_     = 0;
+            other.capacity_ = 0;
+        }
+        return *this;
+    }
+
+   // Rule of Five, 3rd commit
