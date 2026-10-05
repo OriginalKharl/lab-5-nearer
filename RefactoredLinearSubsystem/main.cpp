@@ -112,3 +112,20 @@ public:
 
     // printAll() segm
     // 5th commit
+
+    std::size_t getSize()     const noexcept { return size_; }
+    std::size_t getCapacity() const noexcept { return capacity_; }
+    bool        isEmpty()     const noexcept { return size_ == 0; }
+
+    int& at(std::size_t index) {
+        if (index >= size_) throw std::out_of_range("DynamicArray::at");
+        return data_[index];
+    }
+    const int& at(std::size_t index) const {
+        if (index >= size_) throw std::out_of_range("DynamicArray::at");
+        return data_[index];
+    }
+};
+
+// Accessors
+// 6th commit
